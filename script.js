@@ -96,7 +96,6 @@ torres.forEach(function (torre) {
             ) {
                 event.currentTarget.appendChild(disco);
                 contador += 1
-                console.log(contador)
                 movimentos.innerText = contador;
                 jogoGanho();
             }
@@ -118,6 +117,7 @@ function jogoGanho() {
         recorde.innerText = min
             
         pause()
+        iniciaModal('modal-vitoria')
     } else if (dificuldadeSelecionada === "medio" && torre3.childElementCount === 4) {
         vitoria.innerText = "VITORIA";
         lista[1].push(contador)
@@ -125,6 +125,7 @@ function jogoGanho() {
         recorde.innerText = min
 
         pause()
+        iniciaModal('modal-vitoria')
     } else if (dificuldadeSelecionada === "dificil" && torre3.childElementCount === 5) {
         vitoria.innerText = "VITORIA";
         lista[2].push(contador)
@@ -132,11 +133,10 @@ function jogoGanho() {
         recorde.innerText = min
 
         pause()
+        iniciaModal('modal-vitoria')
     }
 
 }
-
-
 
 //INICIAR NOVO JOGO
 function resetJogo() {
@@ -149,7 +149,6 @@ function resetJogo() {
     disco = null;
     vitoria.innerText = "";
     stop()
-    console.log(tempo)
 }
 const reset = document.getElementById("reset");
 reset.addEventListener("click", resetJogo);
@@ -171,10 +170,10 @@ let mm = 0;
 let ss = 0;
 
 let tempo = 1000; //quantos milésimos valem 1 segundo?
-let cron;
+let cron = 0;
 
 function start() {
-
+    clearInterval(cron)
     cron = setInterval(() => { timer(); }, tempo)
     
 }
@@ -203,3 +202,21 @@ function timer() {
     let format = (hh < 10 ? '0' + hh : hh)+ ':' + (mm < 10 ? '0' + mm : mm) + ':' + (ss < 10 ? '0' + ss : ss);
     document.getElementById('cronometro').innerText = format;
 }
+
+
+function iniciaModal(modalID) {
+    const modal = document.getElementById(modalID)
+
+    modal.classList.add('mostrar')
+    modal.addEventListener("click", (e) => {
+        if(e.target.id == modalID || e.target.id == "jogar-novamente"){
+            modal.classList.remove('mostrar')
+        }
+    })
+}
+
+const jogarDeNovo = document.getElementById("jogar-novamente");
+jogarDeNovo.addEventListener("click", () => {
+    resetJogo()
+})
+
