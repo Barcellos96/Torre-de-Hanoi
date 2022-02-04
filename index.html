@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Torre de Hanoi</title>
+</head>
+<body>
+    <h1>Torre de Hanoi</h1>
+    <label>
+      <input type="radio" name="dificuldade" value="facil" />
+      Fácil
+    </label>
+    <label>
+      <input type="radio" name="dificuldade" value="medio" />
+      Médio
+    </label>
+    <label>
+      <input type="radio" name="dificuldade" value="dificil" />
+      Difícil
+    </label>
+
+    <button id="reset" type="button">Reset Game</button>
+    <p>Movimentos: <span id="movimentos">0</span> </p>
+    <p>Recorde: <span id="recorde">0</span></p>
+    <p>Tempo: <span id="cronometro">00:00:00</span></p>
+    
+    <div id="jogo"></div>
+    <div id="vitoria"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
