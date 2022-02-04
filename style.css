@@ -131,24 +131,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width:700px){
     #jogo{
         background-color: honeydew;
@@ -164,15 +146,92 @@ body {
         background-color: brown;
         flex-direction: column-reverse;
         height: 200px;
-        width: 20px;
+        width: 60px;
         align-items: center;
         justify-items: center;
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
     }
+
+    
+#vitoria {
+    font-size: 40px;
+    color: brown;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 0px;
 }
 
-@media (max-width: 400px){
+#jogar-novamente{
+    margin-top: 20px;
+    background-color: brown;
+    opacity: 0.5;
+    color: white;
+    cursor: pointer;
+    height: 35px;
+    width: 170px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#jogar-novamente:hover {
+    background-color: brown;
+    opacity: 1;
+
+}
+
+@keyframes modal{
+    from{
+        opacity: 0;
+        transform: translate3d(0, -80px, 0)
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0,0,0);
+    }
+}
+
+.mostrar .modal {
+    animation: modal .3s;
+}
+
+.modal-container{
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container.mostrar{
+    display: flex;
+}
+
+.modal{
+    background-color: white;
+    width: 60%;
+    min-width: 170px;
+    padding: 40px;
+    border: 10px solid brown;
+    box-shadow: 0 0 0 10px white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+}
+
+@media (max-width: 600px){
     #jogo{
         background-color: honeydew;
         display: flex;
@@ -187,46 +246,122 @@ body {
         background-color: brown;
         flex-direction: column-reverse;
         height: 100px;
-        width: 10px;
+        width: 40px;
         align-items: center;
         justify-items: center;
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
     }
     .disco {
-        height: 10px;
+        height: 15px;
     }
     
     .disco1 {
         background: red;
-        width: 30px;
+        width: 50px;
     }
     
     .disco2 {
         background: green;
-        width: 50px;
+        width: 70px;
     }
     
     .disco3 {
         background: yellow;
-        width: 70px;
+        width: 90px;
     }
     
     .disco4 {
         background: blue;
-        width: 90px;
+        width: 110px;
     }
     
     .disco5 {
         background: deeppink;
-        width: 110px;
+        width: 130px;
     }
     #vitoria {
-        font-size: 30px;
+        font-size: 20px;
         color: red;
         font-weight: bold;
         justify-content: center;
         align-items: center;
         display: flex;
     }
+    
+#vitoria {
+    font-size: 30px;
+    color: brown;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 0px;
+}
+
+#jogar-novamente{
+    margin-top: 20px;
+    background-color: brown;
+    opacity: 0.5;
+    color: white;
+    cursor: pointer;
+    height: 25px;
+    width: 120px;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#jogar-novamente:hover {
+    background-color: brown;
+    opacity: 1;
+
+}
+
+@keyframes modal{
+    from{
+        opacity: 0;
+        transform: translate3d(0, -80px, 0)
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0,0,0);
+    }
+}
+
+.mostrar .modal {
+    animation: modal .3s;
+}
+
+.modal-container{
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container.mostrar{
+    display: flex;
+}
+
+.modal{
+    background-color: white;
+    width: 60%;
+    min-width: 150px;
+    padding: 40px;
+    border: 10px solid brown;
+    box-shadow: 0 0 0 10px white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 }
