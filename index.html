@@ -10,31 +10,37 @@
 <body>
     <h1>Torre de Hanoi</h1>
     
-    <label>
-      <input type="radio" name="dificuldade" value="facil" />
-      Fácil
-    </label>
-    <label>
-      <input type="radio" name="dificuldade" value="medio" />
-      Médio
-    </label>
-    <label>
-      <input type="radio" name="dificuldade" value="dificil" />
-      Difícil
-    </label>
+    <fieldset class="fieldDificuldade">
+      <label>
+        <input type="radio" name="dificuldade" value="facil" />
+        Fácil
+      </label>
+      <label>
+        <input type="radio" name="dificuldade" value="medio" />
+        Médio
+      </label>
+      <label>
+        <input type="radio" name="dificuldade" value="dificil" />
+        Difícil
+      </label>
+    </fieldset>
 
-    <button id="reset" type="button">Reset Game</button>
+    <div class="resultados">
     <p>Movimentos: <span id="movimentos">0</span> </p>
     <p>Recorde: <span id="recorde">0</span></p>
     <p>Tempo: <span id="cronometro">00:00:00</span></p>
+    </div>
+
+    <button 
+    id="reset" 
+    type="button" 
+    class="button-reset"> Reset Game </button>
+
     
     <div id="modal-vitoria" class="modal-container">
       <div class="modal">
-        <div id="vitoria"> VITORIA</div>
-        
-          
+        <div class="vitoria"> VITORIA</div>   
           <button id="jogar-novamente" type="button">Jogar Novamente</button>
-        
       </div>
      </div>
     

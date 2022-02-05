@@ -1,5 +1,5 @@
+//windown
 const movimentos           = document.getElementById("movimentos");
-const vitoria              = document.getElementById("vitoria");
 const recorde              = document.getElementById("recorde")
 let lista                  = [[], [], []]
 let contador               = 0;
@@ -27,8 +27,30 @@ jogo.appendChild(torre1)
 jogo.appendChild(torre2)
 jogo.appendChild(torre3)
 
-
 const torres = document.querySelectorAll(".torre");
+
+//PEGAR MENOR QUANTIDADE DE MOVIMENTOS | RECORDE
+function menorValor(){
+    let menorRecorde = Math.min(...lista[0]);
+        recorde.innerText = menorRecorde
+        if (menorRecorde == "Infinity") {
+            recorde.innerText = 0
+        }
+}
+function menorValor2(){
+    let menorRecorde = Math.min(...lista[1])
+        recorde.innerText = menorRecorde
+        if (menorRecorde == "Infinity") {
+            recorde.innerText = 0
+        }
+}
+function menorValor3(){
+    let menorRecorde = Math.min(...lista[2])
+        recorde.innerText = menorRecorde
+        if (menorRecorde == "Infinity") {
+            recorde.innerText = 0
+        }
+}
 
 //INICIAR O JOGO ESCOLHENDO SUA DIFICULDADE
 function iniciarJogo() {
@@ -36,11 +58,7 @@ function iniciarJogo() {
 
     if (dificuldadeSelecionada === "facil") {      
         start()
-        let menorRecorde = Math.min(...lista[0]);
-        recorde.innerText = menorRecorde
-        if (menorRecorde == "Infinity") {
-            recorde.innerText = 0
-        }
+        menorValor()
 
         //CRIANDO OS DISCOS
         for (let index = 3; index >= 1; index--) {
@@ -50,11 +68,7 @@ function iniciarJogo() {
         }
     } else if (dificuldadeSelecionada === "medio") {
         start()
-        let menorRecorde = Math.min(...lista[1])
-        recorde.innerText = menorRecorde
-        if (menorRecorde == "Infinity") {
-            recorde.innerText = 0
-        }
+        menorValor2()
         //CRIANDO OS DISCOS
         for (let index = 4; index >= 1; index--) {
             const disco = document.createElement("div");
@@ -63,11 +77,7 @@ function iniciarJogo() {
         }
     } else if (dificuldadeSelecionada === "dificil") {
         start()
-        let menorRecorde = Math.min(...lista[2])
-        recorde.innerText = menorRecorde
-        if (menorRecorde == "Infinity") {
-            recorde.innerText = 0
-        }
+        menorValor3()
         //CRIANDO OS DISCOS  
         for (let index = 5; index >= 1; index--) {
             const disco = document.createElement("div");
@@ -110,27 +120,20 @@ torres.forEach(function (torre) {
 function jogoGanho() {
     const torre3 = document.getElementById("torre3");
     if (dificuldadeSelecionada === "facil" && torre3.childElementCount === 3) {
-        vitoria.innerText = "VITORIA";
-
         lista[0].push(contador);
-        let menorRecorde = Math.min(...lista[0]);
-        recorde.innerText = menorRecorde
+        menorValor()
 
         pause()
         iniciaModal('modal-vitoria')
     } else if (dificuldadeSelecionada === "medio"   && torre3.childElementCount === 4) {
-        vitoria.innerText = "VITORIA";
         lista[1].push(contador)
-        let menorRecorde = Math.min(...lista[1])
-        recorde.innerText = menorRecorde
+        menorValor2()
 
         pause()
         iniciaModal('modal-vitoria')
     } else if (dificuldadeSelecionada === "dificil" && torre3.childElementCount === 5) {
-        vitoria.innerText = "VITORIA";
         lista[2].push(contador)
-        let menorRecorde = Math.min(...lista[2])
-        recorde.innerText = menorRecorde
+        menorValor3()
 
         pause()
         iniciaModal('modal-vitoria')
@@ -201,7 +204,7 @@ function timer() {
     document.getElementById('cronometro').innerText = format;
 }
 
-
+//MODAL
 function iniciaModal(modalID) {
     const modal = document.getElementById(modalID)
 
